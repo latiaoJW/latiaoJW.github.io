@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[利用canvas制作瀑布流1、0滚动数字]]></title>
+    <url>%2F2018%2F01%2F29%2Fcanvas-10%2F</url>
+    <content type="text"><![CDATA[先来张效果图： 首先，创建一个canvas容器 html code:1&lt;canvas id="matrix"&gt;&lt;/canvas&gt; 以下是js逻辑代码 javascript code：1234567891011121314151617181920212223242526 var matrix=document.getElementById("matrix"); // 获取canvas节点 var context=matrix.getContext("2d"); matrix.height=window.innerHeight; // 设置canvas容器高度 matrix.width=window.innerWidth; // 设置canvas容器宽度 var drop=[]; var font_size=16; var columns=matrix.width/font_size; for(var i=0;i&lt;columns;i++) drop[i]=1; function drawMatrix() &#123; context.fillStyle="rgba(0, 0, 0, 0.1)"; // 容器的背景颜色 context.fillRect(0,0,matrix.width,matrix.height); // 绘制的起点与结束点 context.fillStyle="#6899ec"; // 设置页面字体颜色 context.font=font_size+"px"; for(var i=0;i&lt;columns;i++)&#123; context.fillText(Math.floor(Math.random()*2),i*font_size,drop[i]*font_size);/*get 0 and 1*/ if(drop[i]*font_size&gt;(matrix.height*2/3)&amp;&amp;Math.random()&gt;0.85)/*reset*/ drop[i]=0; drop[i]++; &#125; &#125; setInterval(drawMatrix,40);&#125;]]></content>
+      <categories>
+        <category>canvas</category>
+        <category>javascript</category>
+        <category>html5</category>
+      </categories>
+      <tags>
+        <tag>html5</tag>
+        <tag>canvas</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[移动端点击失效解决方案]]></title>
+    <url>%2F2018%2F01%2F19%2Fmobile-click-bug%2F</url>
+    <content type="text"><![CDATA[关于移动端click事件失效的解决方案如下： 将 click 事件直接绑定到目标​元素（​​即 .target）上 将目标​元素换成 a 或者 button 等可点击的​元素 将 click 事件委托到​​​​​非 document 或 body 的​​父级元素上 给​目标元素加一条样式规则 cursor: pointer 第2/4的解决方案里，在移动端会有点击阴影的效果， 解决：1234* &#123; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color:transparent;&#125;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>移动端</tag>
+      </tags>
+  </entry>
+</search>
